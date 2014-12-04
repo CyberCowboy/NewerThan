@@ -1,4 +1,4 @@
 NewerThan
 =========
 
-Find files newer than input date
+Find files created or modified after an input date in a given directory, and all lower directories
