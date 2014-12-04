@@ -34,7 +34,7 @@ def TimeCheck():
                    if CutTime < ModTime:
                        print ('Works')
                        output = open('ChangedAfter.txt','a')
-                       output.write(str(FullName)
+                       output.write(str(FullName))
                        output.write("\n")
                        output.close
     except IOError, e:
