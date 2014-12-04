@@ -21,23 +21,22 @@ def TimeCheck():
     CutTime = time.mktime(CutDate)
     #print CutDate
     #print CutTime
-    try:
-       for path, dirs, files in os.walk(unicode(RootDir)):
-           #This section goes through the given directory, and all subdirectories/files below
-           #as part of a loop and checks dates
-           for filename in files:
-               #Steps through each fine and compares dates to give
-               FullName = os.path.join(path, filename)
-               with open(FullName) as f:
-                   #does the actual compare
-                   ModTime =os.path.getmtime(FullName)
-                   if CutTime < ModTime:
-                       print ('Works')
-                       output = open('ChangedAfter.txt','a')
-                       output.write(str(FullName))
-                       output.write("\n")
-                       output.close
-    except IOError, e:
-        print e
-    if __name__ == "__main__":
-        import sys
+    for path, dirs, files in os.walk(unicode(RootDir)):
+        #print RootDir
+        #This section goes through the given directory, and all subdirectories/files below
+        #as part of a loop and checks dates
+        for filename in files:
+            #print filename
+            #Steps through each fine and compares dates to give
+            FullName = os.path.join(path, filename)
+            #print FullName
+            with open(FullName) as f:
+            #does the actual compare
+                ModTime=os.path.getmtime(FullName)
+                #print ModTime
+                if CutTime < ModTime:
+                    #print ('Works')
+                    output = open('ChangedAfter.txt','a')
+                    output.write(str(FullName))
+                    output.write("\n")
+                    output.close
